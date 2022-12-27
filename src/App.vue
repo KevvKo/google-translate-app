@@ -15,5 +15,5 @@ onMounted(() => {
     </nav>
   </header>
 
-  <RouterView />
+  <RouterView class="grow" />
 </template>

@@ -5,11 +5,11 @@ import ToolbarComponent from '@/components/ToolbarComponent.vue';
 </script>
 
 <template>
-  <main class="h-full p-5 flex flex-col">
+  <main class="p-5 flex flex-col">
     <ToolbarComponent />
-    <div class="flex">
-      <TranslationInput class="w-1/2"/>
-      <TranslationOuput class="w-1/2"/>
+    <div class="flex h-full">
+      <TranslationInput class="w-1/2" />
+      <TranslationOuput class="w-1/2" />
     </div>
   </main>
 </template>

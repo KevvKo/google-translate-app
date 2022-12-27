@@ -3,18 +3,18 @@ import type { PropType } from "vue";
 import type { Language } from "@/models/models";
 import { store } from "@/store/store";
 
-defineProps({
-  languages: Array as PropType<Language[]>,
-  sourceLanguage: String as PropType<string>,
-  name: String as PropType<string>,
-});
+const props = defineProps<{
+  languages: Language[];
+  name: string;
+  selectedValue: string;
+}>();
 </script>
 
 <template>
   <select class="rounded py-3 px-2" name="sourceLanguage">
     <option
-      v-for="(languageItem, index) in languages"
-      :selected="languageItem.language === sourceLanguage"
+      v-for="(languageItem, index) in props.languages"
+      :selected="languageItem.language === props.selectedValue"
       value="languageItem.language"
       v-bind:key="index"
     >
