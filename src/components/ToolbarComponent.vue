@@ -21,11 +21,7 @@ function handleClickSwitch() {
 
 <template>
   <div class="flex items-center justify-between">
-    <SelectLanguage
-      name="sourceLanguage"
-      :languages="store.languages"
-      :selectedValue="store.sourceLanguage"
-    />
+    <SelectLanguage name="sourceLanguage" :languages="store.languages" />
     <div>
       <button
         class="ease-in duration-100 hover:bg-gray-200 active:bg-gray-300 rounded-full p-2"

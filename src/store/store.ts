@@ -7,23 +7,23 @@ interface Store {
   sourceLanguage: string;
   targetLanguage: string;
 
-  loadLanguages: () => void;
   setSourceLanguage: (language: string) => void;
   setTargetLanguage: (language: string) => void;
+  setLanguages: (languages: Language[]) => void;
 }
 
 export const store: Store = reactive({
   languages: [] as Language[],
-  sourceLanguage: "German",
+  sourceLanguage: "Detect Language",
   targetLanguage: "English",
 
-  loadLanguages() {
-    this.languages = data.data.languages;
-  },
   setSourceLanguage(language: string) {
     this.sourceLanguage = language;
   },
   setTargetLanguage(language: string) {
     this.targetLanguage = language;
+  },
+  setLanguages(languages: Language[]) {
+    this.languages = languages;
   },
 });

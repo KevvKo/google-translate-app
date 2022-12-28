@@ -6,12 +6,13 @@ import { store } from "@/store/store";
 const props = defineProps<{
   languages: Language[];
   name: string;
-  selectedValue: string;
+  selectedValue?: string;
 }>();
 </script>
 
 <template>
   <select class="rounded py-3 px-2" name="sourceLanguage">
+    <option value="detect">Detect language</option>
     <option
       v-for="(languageItem, index) in props.languages"
       :selected="languageItem.language === props.selectedValue"

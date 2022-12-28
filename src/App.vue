@@ -2,9 +2,13 @@
 import { RouterLink, RouterView } from "vue-router";
 import { onMounted } from "vue";
 import { store } from "@/store/store";
+import { LanguageService } from "@/services/LanguageService";
 
-onMounted(() => {
-  store.loadLanguages();
+onMounted( async () => {
+  // const result = await LanguageService().getLanguages();
+  // if (result) {
+  //   store.setLanguages(result.data.languages);
+  // }
 });
 </script>
 
