@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TranslationInput from '@/components/TranslationInput.vue';
-import TranslationOuput from '@/components/TranslationOuput.vue';
-import ToolbarComponent from '@/components/ToolbarComponent.vue';
+import TranslationInput from "@/components/TranslationInput.vue";
+import TranslationOuput from "@/components/TranslationOuput.vue";
+import ToolbarComponent from "@/components/ToolbarComponent.vue";
 </script>
 
 <template>

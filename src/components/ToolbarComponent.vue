@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { store } from '@/store/store';
+import { ref } from "vue";
+import { store } from "@/store/store";
 
-import SelectLanguage from '@/components/SelectLanguage.vue';
+import SelectLanguage from "@/components/SelectLanguage.vue";
 import SwitchIcon from "@/components/icons/SwitchIcon.vue";
 
 const isRotated = ref(false);
@@ -15,7 +15,7 @@ function handleClickSwitch() {
 
   store.setSourceLanguage(targetLanguage);
   store.setTargetLanguage(sourceLanguage);
-};
+}
 
 const handleChangeSourceLanguage = (event: Event) => {
   const element = event.target as HTMLInputElement;

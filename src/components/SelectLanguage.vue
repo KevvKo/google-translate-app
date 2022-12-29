@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Language } from "@/models/GetLanguagesModels";
-import { store } from "@/store/store";
 import { defineEmits } from "vue";
 
 const props = defineProps<{

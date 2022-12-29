@@ -1,16 +1,22 @@
 <script setup lang="ts">
-import { store } from '@/store/store';
-import { LanguageService } from '@/services/LanguageService';
+import { store } from "@/store/store";
+import { LanguageService } from "@/services/LanguageService";
 
 const handleInput = async (event: Event) => {
   const element = event.target as HTMLInputElement;
   const value = element.value;
-  const sourceLanguage = store.sourceLanguage;
+  let sourceLanguage = store.sourceLanguage;
   const targetLanguage = store.targetLanguage;
 
   if (sourceLanguage === "detect" && value) {
-    LanguageService.detectLanguage(value);
+    const detectResult = await LanguageService.detectLanguage(value);
+
+    if (detectResult && detectResult?.data) {
+      sourceLanguage = detectResult.data.detections[0].language;
+      store.setSourceLanguage(sourceLanguage);
+    }
   }
+  console.log(sourceLanguage);
 
   const result = await LanguageService.translate(
     sourceLanguage,
@@ -18,7 +24,7 @@ const handleInput = async (event: Event) => {
     value
   );
 
-  if (result) {
+  if (result && result?.data) {
     store.setTranslation(result.data.translations[0].translatedText);
   }
 };

@@ -1,5 +1,4 @@
 import { reactive } from "vue";
-import { data } from "@/assets/mockData";
 import type { Language } from "@/models/GetLanguagesModels";
 
 interface Store {

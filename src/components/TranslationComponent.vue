@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import TranslationInput from './TranslationInput.vue';
-import TranslationOuput from './TranslationOuput.vue';
+import TranslationInput from "./TranslationInput.vue";
+import TranslationOuput from "./TranslationOuput.vue";
 </script>
 
 <template>

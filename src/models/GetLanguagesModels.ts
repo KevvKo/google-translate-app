@@ -6,6 +6,6 @@ export interface Data {
   languages: Language[];
 }
 
-export interface RootObject {
+export interface GetLanguagesResponse {
   data: Data;
-};
+}
