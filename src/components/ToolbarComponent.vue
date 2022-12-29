@@ -17,16 +17,37 @@ function handleClickSwitch() {
   store.setTargetLanguage(sourceLanguage);
 };
 
+const handleChangeSourceLanguage = (event: Event) => {
+  const element = event.target as HTMLInputElement;
+  const value = element.value;
+
+  if (value) {
+    store.setSourceLanguage(value);
+  }
+};
+
+const handleChangeTargetLanguage = (event: Event) => {
+  const element = event.target as HTMLInputElement;
+  const value = element.value;
+
+  if (value) {
+    store.setTargetLanguage(value);
+  }
+};
 </script>
 
 <template>
   <div class="flex items-center justify-between">
-    <SelectLanguage name="sourceLanguage" :languages="store.languages" />
+    <SelectLanguage
+      name="sourceLanguage"
+      :languages="store.languages"
+      @change="handleChangeSourceLanguage"
+    />
     <div>
       <button
         class="ease-in duration-100 hover:bg-gray-200 active:bg-gray-300 rounded-full p-2"
         :class="{ 'rotate-180': isRotated }"
-        @click="handleClickSwitch"
+        @change="handleClickSwitch"
       >
         <SwitchIcon />
       </button>
@@ -35,6 +56,7 @@ function handleClickSwitch() {
       name="targetLanguage"
       :languages="store.languages"
       :selectedValue="store.targetLanguage"
+      @change="handleChangeTargetLanguage"
     />
   </div>
 </template>

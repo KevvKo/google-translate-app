@@ -1,3 +1,5 @@
+import type { TranslateResponse } from "@/models/TranslateModels";; 
+
 export const LanguageService = {
 
   getLanguages: async () => {
@@ -30,15 +32,19 @@ export const LanguageService = {
       },
       body: encodedParams,
     };
-    fetch(
-      "https://google-translate1.p.rapidapi.com/language/translate/v2/detect",
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+    // fetch(
+    //   "https://google-translate1.p.rapidapi.com/language/translate/v2/detect",
+    //   options
+    // )
+    //   .then((response) => response.json())
+    //   .then((response) => console.log(response))
+    //   .catch((err) => console.error(err));
   },
-  translate: async (source: string, target: string, content: string) => {
+  translate: async (
+    source: string,
+    target: string,
+    content: string
+  ): Promise<TranslateResponse> => {
     const encodedParams = new URLSearchParams();
     encodedParams.append("source", source);
     encodedParams.append("target", target);
@@ -55,12 +61,11 @@ export const LanguageService = {
       body: encodedParams,
     };
 
-    fetch(
+    return await fetch(
       "https://google-translate1.p.rapidapi.com/language/translate/v2",
       options
     )
       .then((response) => response.json())
-      .then((response) => console.log(response))
       .catch((err) => console.error(err));
   },
 };

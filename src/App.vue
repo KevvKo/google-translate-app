@@ -4,11 +4,11 @@ import { onMounted } from "vue";
 import { store } from "@/store/store";
 import { LanguageService } from "@/services/LanguageService";
 
-onMounted( async () => {
-  // const result = await LanguageService().getLanguages();
-  // if (result) {
-  //   store.setLanguages(result.data.languages);
-  // }
+onMounted(async () => {
+  const result = await LanguageService.getLanguages();
+  if (result) {
+    store.setLanguages(result.data.languages);
+  }
 });
 </script>
 

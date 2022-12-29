@@ -1,21 +1,24 @@
 import { reactive } from "vue";
 import { data } from "@/assets/mockData";
-import type { Language } from "@/models/models";
+import type { Language } from "@/models/GetLanguagesModels";
 
 interface Store {
   languages: Language[];
   sourceLanguage: string;
   targetLanguage: string;
+  translations: string;
 
   setSourceLanguage: (language: string) => void;
   setTargetLanguage: (language: string) => void;
   setLanguages: (languages: Language[]) => void;
+  setTranslation: (content: string) => void;
 }
 
 export const store: Store = reactive({
   languages: [] as Language[],
-  sourceLanguage: "Detect Language",
-  targetLanguage: "English",
+  sourceLanguage: "detect",
+  targetLanguage: "en",
+  translations: "Translation",
 
   setSourceLanguage(language: string) {
     this.sourceLanguage = language;
@@ -25,5 +28,8 @@ export const store: Store = reactive({
   },
   setLanguages(languages: Language[]) {
     this.languages = languages;
+  },
+  setTranslation(translations: string) {
+    this.translations = translations;
   },
 });

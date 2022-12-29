@@ -1,4 +1,4 @@
-import type { RootObject } from "@/models/models";
+import type { RootObject } from "@/models/GetLanguagesModels";
 
 export const data: RootObject = {
   data: {
